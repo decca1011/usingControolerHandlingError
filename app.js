@@ -6,9 +6,10 @@ const express = require('express')
 const app = express();
 
 const adminRoutes =require('./routes/admin');
-const shopRoutes =require('./routes/shop');
-const contactRoutes =require('./routes/contact');
- 
+const shopRoutes = require('./routes/shop');
+const contactRoutes = require('./routes/contact');
+const errorhandle  = require('./controller/error')
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -17,8 +18,6 @@ app.use(shopRoutes)
 app.use(contactRoutes)
  
 
-app.use((req,res,next) => {
-    res.status(404).sendFile(path.join(__dirname,'views','PageNotFound.html'))
-})
+app.use(errorhandle.error404)
 
 app.listen(3000)

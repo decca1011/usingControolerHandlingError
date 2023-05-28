@@ -6,8 +6,8 @@ const router = express.Router()
 const getdetail= require('../controller/user')
 // router.post
 
-router.get('/contact',getdetail.contact);
+router.get('/contact', getdetail.contact);
 
-    router.post('/contact',getdetail.response);
+router.post('/contact', getdetail.response);
 
-    module.exports = router;
+module.exports = router;
