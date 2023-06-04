@@ -3,7 +3,7 @@ const  rootDir = require('../utl/path')
 
 const  express = require('express');
 const router = express.Router();
-const productsController = require('../controller/product')
+const productsController = require('../controller/admin')
 
 router.get('/', productsController.getProduct)
 
